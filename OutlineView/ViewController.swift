@@ -12,7 +12,7 @@ class ViewController: NSViewController {
 
     @IBOutlet var treeController: NSTreeController!
     
-    @objc dynamic var dict = ["apa": 1, "bpa": 2, "cpa": ["ett": 1, "två": 2], "dpa": "fyra"].map(TreeItem.init)
+    @objc dynamic var dict = ["apa": 1, "bpa": 2, "cpa": ["ett": 1, "två": 2], "dpa": "fyra", "epa": [5,6,7], "fpa": ["åtta":8, "mer": ["nio": 9, "tio": 10]]].map(TreeItem.init)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +42,14 @@ class ViewController: NSViewController {
             let children = v.map(TreeItem.init)
             self.value = "\(children.count) items"
             self.children = children
+        case let (k,v) as (String,[Any]):
+            self.name = k
+            let children = v.enumerated().map(TreeItem.init)
+            self.value = "\(children.count) items"
+            self.children = children
+        case let (k,v) as (Int,Int):
+            self.name = "#\(k)"
+            self.value = "\(v)"
         default: self.name = "Error: \(obj)"
         }
     }
