@@ -838,7 +838,7 @@
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <treeController childrenKeyPath="children" countKeyPath="count" leafKeyPath="isLeaf" id="i3N-tN-QcM">
                     <connections>
-                        <binding destination="XfG-lQ-9wD" name="contentArray" keyPath="kaka" id="DUb-AR-pVO"/>
+                        <binding destination="XfG-lQ-9wD" name="contentArray" keyPath="dict" id="6dt-lB-WBy"/>
                     </connections>
                 </treeController>
                 <userDefaultsController representsSharedInstance="YES" id="P7x-HJ-Mms"/>

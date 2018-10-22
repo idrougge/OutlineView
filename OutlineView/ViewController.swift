@@ -12,20 +12,10 @@ class ViewController: NSViewController {
 
     @IBOutlet var treeController: NSTreeController!
     
-    //@objc dynamic let dict: [String:Any] = ["apa": 1, "bpa": 2, "cpa": ["ett": 1, "två": 2], "dpa": "fyra"]
-    
-    @objc dynamic var kaka = ["apa": 1, "bpa": 2, "cpa": ["ett": 1, "två": 2], "dpa": "fyra"].map(TreeItem.init)
+    @objc dynamic var dict = ["apa": 1, "bpa": 2, "cpa": ["ett": 1, "två": 2], "dpa": "fyra"].map(TreeItem.init)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
     }
 }
 
