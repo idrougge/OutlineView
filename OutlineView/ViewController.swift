@@ -49,6 +49,7 @@ class ViewController: NSViewController {
     @objc var value: String?
     @objc var count: Int { return children.count }
     @objc var isLeaf: Bool { return children.isEmpty }
+    // TODO: Handle `Bool`, `null`
     init(_ obj: Any) {
         //print("obj:", type(of: obj))
         switch obj {
