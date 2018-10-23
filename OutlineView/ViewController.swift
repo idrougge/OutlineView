@@ -8,11 +8,35 @@
 
 import Cocoa
 
+let json = """
+{
+"glossary": {
+"title": "example glossary",
+"GlossDiv": {
+"title": "S",
+"GlossList": {
+"GlossEntry": {
+"ID": "SGML",
+"SortAs": "SGML",
+"GlossTerm": "Standard Generalized Markup Language",
+"Acronym": "SGML",
+"Abbrev": "ISO 8879:1986",
+"GlossDef": {
+"para": "A meta-markup language, used to create markup languages such as DocBook.",
+"GlossSeeAlso": ["GML", "XML"]
+},
+"GlossSee": "markup"
+}
+}
+}
+}
+}
+"""
 class ViewController: NSViewController {
 
     @IBOutlet var treeController: NSTreeController!
     
-    @objc dynamic var dict = ["apa": 1, "bpa": 2, "cpa": ["ett": 1, "två": 2], "dpa": "fyra", "epa": [5,6,7], "fpa": ["åtta":8, "mer": ["nio": 9, "tio": 10]]].map(TreeItem.init)
+    @objc var dict = try! [ TreeItem.init( JSONSerialization.jsonObject(with: json.data(using: .utf8)!, options: .allowFragments) ) ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +50,12 @@ class ViewController: NSViewController {
     @objc var count: Int { return children.count }
     @objc var isLeaf: Bool { return children.isEmpty }
     init(_ obj: Any) {
-        //print("obj:",obj, obj is (String,Int))
+        //print("obj:", type(of: obj))
         switch obj {
+        case let v as [String:Any]:
+            let children = v.map(TreeItem.init)
+            self.name = "\(children.count) items"
+            self.children = children
         case let (k,v) as (String,Int):
             print("k:\(k),nr:\(v)")
             self.name = k
@@ -50,7 +78,12 @@ class ViewController: NSViewController {
         case let (k,v) as (Int,Int):
             self.name = "#\(k)"
             self.value = "\(v)"
-        default: self.name = "Error: \(obj)"
+        case let (k,v) as (Int,String):
+            self.name = "#\(k)"
+            self.value = v
+        default:
+            print("###Unhandled type:", obj)
+            self.name = "Error: \(obj)"
         }
     }
 }

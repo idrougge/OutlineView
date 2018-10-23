@@ -716,11 +716,12 @@
                                     <rect key="frame" x="1" y="0.0" width="478" height="270"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="eoE-sd-Kb6" viewBased="YES" indentationPerLevel="16" outlineTableColumn="Pe0-Oc-Ury" id="R99-9B-Mcg">
+                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="eoE-sd-Kb6" viewBased="YES" indentationPerLevel="16" outlineTableColumn="Pe0-Oc-Ury" id="R99-9B-Mcg">
                                             <rect key="frame" x="0.0" y="0.0" width="478" height="247"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <tableViewGridLines key="gridStyleMask" vertical="YES"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
                                                 <tableColumn width="116" minWidth="40" maxWidth="1000" id="Pe0-Oc-Ury">
